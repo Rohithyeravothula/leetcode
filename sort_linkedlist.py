@@ -15,7 +15,7 @@ class Solution:
 			up = head.next
 			head.next = node
 			node.next = up
-			print("point", node.val)
+			print("point", nodne.val)
 			return node
 
 		def merge(left, right):

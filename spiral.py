@@ -9,14 +9,11 @@ class Solution:
             n = col_end - col_start
             if m==0 or n==0:
                 return result
-            if m==1 and n == 1:
-                result.append(a[row_start][col_start])
-                return result
-            elif m==1 and n>1:
+            elif m==1:
                 for i in range(col_start, col_end):
                     result.append(a[row_start][i])
                 return result
-            elif n==1 and m>1:
+            elif n==1:
                 for i in range(row_start, row_end):
                     result.append(a[i][col_start])
                 return result
