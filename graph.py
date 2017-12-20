@@ -54,6 +54,14 @@ class TreeNode:
         self.left = None
         self.right = None
 
+    def __str__(self):
+        if self is not None:
+            return str(self.val)
+        else:
+            return "None"
+
+    def __repr__(self):
+        return str(self)
 
 
 def inorder(node):
@@ -97,21 +105,58 @@ def levelOrder(root):
     return ans
 
 
-a = TreeNode(1)
-c = TreeNode(3)
-b = TreeNode(2)
-d = TreeNode(4)
-e = TreeNode(5)
-f = TreeNode(6)
-g = TreeNode(7)
-h = TreeNode(8)
-a.left = b 
-a.right = c 
-b.left = d 
-b.right = h
-d.left = e
-e.left = f 
-f.left = g
+def get_graph():
+    a=TreeNode(10)
+    b=TreeNode(5)
+    c=TreeNode(15)
+    a.left = b
+    # a.right = c
+    return a
+
+
+    a = TreeNode(1)
+    b = TreeNode(2)
+    c = TreeNode(3)
+    d = TreeNode(4)
+    e = TreeNode(5)
+    f = TreeNode(6)
+    g = TreeNode(7)
+    h = TreeNode(8)
+    a.left = b 
+    a.right = c 
+    b.left = d 
+    b.right = h
+    d.left = e
+    e.left = f 
+    f.left = g
+    return a
+
+def get_tree():
+    a = TreeNode(1)
+    b = TreeNode(2)
+    c = TreeNode(3)
+    d = TreeNode(4)
+    e = TreeNode(5)
+    f = TreeNode(6)
+    g = TreeNode(7)
+    h = TreeNode(8)
+    a.left = b 
+    a.right = c 
+    b.left = d
+    b.right = e 
+    d.left = f 
+    f.left = g
+    g.left = h
+    return a
+
+def get_skewed_tree(n):
+    start = TreeNode(1)
+    cur = start
+    for i in range(2, n):
+        cur.right = TreeNode(i)
+        cur = cur.right
+    return start
+
 
 def dist(u,v, d):
 	if u is None:
