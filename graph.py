@@ -1,3 +1,4 @@
+
 from collections import deque
 class UndirectedGraphNode:
     def __init__(self, x):
@@ -53,6 +54,7 @@ class TreeNode:
         self.val = x
         self.left = None
         self.right = None
+        self.next=None
 
     def __str__(self):
         if self is not None:
@@ -165,6 +167,35 @@ def dist(u,v, d):
 		return d
 	else:
 		return min(dist(u.left, v, d+1), dist(u.right, v, d+1))
+
+
+def leetcode_tree(a):
+    def __helper(a, i, n):
+        if i>=n:
+            return None
+        else:
+            cur = TreeNode(a[i])
+            cur.left = __helper(a, 2*i+1, n)
+            cur.right = __helper(a, 2*i+2, n)
+            return cur
+    return __helper(a, 0, len(a))
+
+# print(inorder(leetcode_tree([1,2,3,4])))
+
+def tree_next(root):
+    def __helper(cur):
+        if cur is None:
+            return None
+        elif cur is not None and cur.next is not None:
+            print(cur.val, cur.next.val)
+        else:
+            print(cur.val, "None")
+        __helper(cur.left)
+        __helper(cur.right)
+    __helper(root)
+
+
+
 
 # print(levelOrder(a))
 # print(dist(b, f.val, 0))
