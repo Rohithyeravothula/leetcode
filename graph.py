@@ -174,6 +174,8 @@ def leetcode_tree(a):
         if i>=n:
             return None
         else:
+            if a[i] is None:
+                return None
             cur = TreeNode(a[i])
             cur.left = __helper(a, 2*i+1, n)
             cur.right = __helper(a, 2*i+2, n)

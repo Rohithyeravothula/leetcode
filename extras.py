@@ -30,8 +30,9 @@ def print_list(a):
 		a=a.next
 	print("None")
 
-def get_list(s,e):
-	assert s<=e
+def get_list(e,s=0):
+	if s==e:
+		return None
 	test_list = ListNode(s)
 	cur = test_list
 	for i in range(s+1, e):
@@ -50,11 +51,12 @@ def create_list(r):
 	return head
 
 def create_random_list(r, left = 1, right=10, sort_flag=False):
-	assert(r >= 1)
+	if r<1:
+		return None
 	nodes = [random.randint(left, right) for _ in range(0, r)]
 	if sort_flag:
 		nodes.sort()
-	# print(nodes)
+	print(nodes)
 	head = ListNode(nodes[0])
 	cur = head
 	for i in nodes[1:]:

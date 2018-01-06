@@ -1,3 +1,6 @@
 *.txt
 *.db
+*.out
+*/*.out
+*/*.o
 __pycache__
