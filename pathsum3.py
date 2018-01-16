@@ -12,17 +12,22 @@ class Solution:
         :type sum: int
         :rtype: List[List[int]]
         """
-        def cursum(cur, sum):
-            if cur is None:
+        self.ans = 0
+        def findsum(parent, sum):
+            if parent is None:
                 return 0
             else:
-                if sum == cur.val:
-                    return 1
-                return cursum(cur.left, sum-cur.val) or cursum(cur.right, sum-cur.val)
+                itersum = findsum(parent.left, sum-parent.val) + findsum(parent.right, sum-parent.val)
+                if parent.val == sum:
+                    return 1+itersum
+                return itersum
 
+        def countsum(parent, sum):
+            if parent is None:
+                return 0
+            else:
+                return findsum(parent, sum)+countsum(parent.left, sum)+countsum(parent.right, sum)
+        return countsum(root, sum)
 
-        self.count = 0
-        cursum(root, sum)
-        return self.count
 
 
