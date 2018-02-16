@@ -10,7 +10,17 @@ class Dog():
 		self.age = age
 		self.wow = list(str(age))*age
 
-a=Dog("hello", 21)
-d={}
-d[a] = 1
-print(d)
+class Students():
+	# counter = 0
+	def __init__(self, name):
+		self.name = name
+		# self.id = Students.counter
+		# Students.counter += 1
+
+	def __del__(self):
+		print("removing {}", self.name)
+
+s1 = Students("tom")
+del s1
+s2 = Students("brad")
+s2 = Students("water")
