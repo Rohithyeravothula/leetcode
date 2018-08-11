@@ -36,3 +36,20 @@ class Solution:
 art = [0, 0, 199]
 s=Solution()
 print(s.threeSumClosest(art, 100))
+
+
+
+class GEOentity:
+    def __init__(self, geoid: int, name: str, country_code: str, population: float):
+        self.geoid = geoid
+        self.name = name
+        self.country_code = country_code
+        self.population = population
+    def wow(self):
+        return self.name
+
+    def __hash__(self):
+        return 21
+
+    def __hash__(self):
+        return str.__hash__(self.__repr__())

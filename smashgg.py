@@ -1,0 +1,6 @@
+Interesting idea, and you people have exciting tech stack, would love to spend my summer with your team and to contribute  and learn
+
+
+
+
+I am a graduate fall 17 computer science student at USC, did my undergraduate from IIT Jodhpur with major in Computer Science. At USC, I am a research student at information sciences institute of USC. Where I am part of team trying to build a causal knowledge organization.  I have 2 of years professinoal experience at Sigmoid where I worked on projects including machine learning, NLP and building ETL pipelines for big data, big data engieering. During my stint at Sigmoid, I majorly worked on two research projects Domain specific knowledge graph and Timeseries predictive maintenance system.   Where I had to understand develop and implement data engineering algorithms on distributed systems using technologies like Python, Scala, and Java. Used tools like Apache Spark, Kafka, Cassandra, MongoDB, PostgreSQL, Redis, Git. I did give few talks on our team learnings on distributed systems.  I worked on personal projects (sentimental analysis on a distributed system), participated in hackathons (apache log analyzer) and recently started on open source contributions also.
