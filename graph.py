@@ -1,4 +1,4 @@
-
+from random import randint
 from collections import deque
 class UndirectedGraphNode:
     def __init__(self, x):
@@ -22,6 +22,18 @@ class GraphNode:
 	def __repr__(self):
 		return str(self)
 
+class ListNode:
+    def __init__(self,val):
+        self.val = val
+        self.next = None
+
+
+
+class DoubleListNode:
+    def __init__(self, val):
+        self.val = val 
+        self.next = None
+        self.prev = None
 
 def print_graph(root):
 	queue = deque([root])
@@ -196,7 +208,69 @@ def tree_next(root):
         __helper(cur.right)
     __helper(root)
 
+def get_ll(n):
+    """
+    returns linkedlist of range n
+    """
+    if n<1:
+        return None
+    head = ListNode(0)
+    cur = head
+    for i in range(1, n):
+        newnode = ListNode(i)
+        cur.next = newnode
+        cur = cur.next
+    return head
 
+def get_rand_sorted_ll(n):
+    if n<1:
+        return None
+    prev = randint(0, 9)
+    head = ListNode(prev)
+    cur = head
+    for i in range(n):
+        cur_val = randint(0, 9)
+        prev += cur_val
+        newnode = ListNode(prev)
+        cur.next = newnode
+        cur = cur.next
+    return head
+
+def get_rand_ll(n):
+    if n<1:
+        return None
+    head = ListNode(randint(0, 9))
+    cur = head
+    for i in range(1, n):
+        newnode = ListNode(randint(0, 9))
+        cur.next = newnode
+        cur = cur.next
+    return head
+
+
+def get_dll(n):
+    """
+    returns linkedlist of range n
+    """
+    if n<1:
+        return None
+    head = DoubleListNode(0)
+    cur = head
+    for i in range(1, n):
+        newnode = DoubleListNode(i)
+        cur.next = newnode
+        newnode.prev = cur
+        cur = cur.next
+    return head
+
+def print_ll(head):
+    cur = head
+    s = ""
+    while cur:
+        s += str(cur.val) + "->"
+        cur = cur.next
+    s+="None"
+    print(s)
 
 
 # print(levelOrder(a))
