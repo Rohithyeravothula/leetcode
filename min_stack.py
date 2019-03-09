@@ -4,51 +4,68 @@ class MinStack:
         """
         initialize your data structure here.
         """
-        self.ele_stack = []
-        self.min_stack = []
-
+        self.min = None
+        self.values = []
+        
 
     def push(self, x):
         """
         :type x: int
         :rtype: void
         """
-        self.ele_stack.append(x)
-        if not self.min_stack:
-            self.min_stack.append(x)
+        if self.min is None:
+            self.min = x 
+            self.values.append(0)
         else:
-            self.min_stack.append(min(x, self.min_stack[-1]))
-
+            self.values.append(x - self.min)
+            if self.min > x:
+                self.min = x
 
     def pop(self):
         """
         :rtype: void
         """
-        self.ele_stack.pop()
-        self.min_stack.pop()
+        if self.values[-1] < 0:
+            self.min = self.min - self.values[-1]
+        self.values.pop()
+        if not self.values:
+            self.min = None
         
 
     def top(self):
         """
         :rtype: int
         """
-        return self.ele_stack[-1]
+        if self.values[-1] < 0:
+            return self.min
+        return self.values[-1] + self.min
         
 
     def getMin(self):
         """
         :rtype: int
         """
-        return self.min_stack[-1]
+        return self.min
         
 
 
 # Your MinStack object will be instantiated and called as such:
 obj = MinStack()
-obj.push(-1)
-print(obj.getMin())
-obj.pop()
-print(obj.min_stack, obj.ele_stack)
+# obj.push(6)
+# obj.push(8)
+# obj.push(4)
+# obj.push(1)
+# obj.push(3)
+# obj.pop()
+# obj.pop()
+# obj.pop()
+# obj.pop()
+# obj.pop()
+# print(obj.top())
+obj.push(0)
+obj.push(1)
+obj.push(0)
+print(obj.values, obj.min)
 print(obj.getMin())
 # obj.push(x)
 # obj.pop()

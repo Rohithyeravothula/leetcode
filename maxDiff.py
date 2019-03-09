@@ -1,3 +1,4 @@
+
 def maxDifference(a):
 	if not a:
 		return -1

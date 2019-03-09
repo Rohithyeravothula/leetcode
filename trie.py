@@ -5,7 +5,7 @@ class Trie(object):
         Initialize your data structure here.
         """
         self.trie = {}
-        
+
 
     def insert(self, word):
         """
@@ -47,7 +47,7 @@ class Trie(object):
             return search_word(word, self.trie)
         return False
 
-        
+
 
     def startsWith(self, prefix):
         """

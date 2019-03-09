@@ -1,5 +1,8 @@
 from random import randint
 from collections import deque
+
+null = None
+
 class UndirectedGraphNode:
     def __init__(self, x):
         self.label = x
@@ -34,6 +37,12 @@ class DoubleListNode:
         self.val = val 
         self.next = None
         self.prev = None
+
+class RandomListNode(object):
+    def __init__(self, x):
+        self.label = x
+        self.next = None
+        self.random = None
 
 def print_graph(root):
 	queue = deque([root])
@@ -272,6 +281,31 @@ def print_ll(head):
     s+="None"
     print(s)
 
+
+
+def get_random_ll(n):
+    if n<1:
+        return None
+    head = RandomListNode(0)
+    cur = head
+    nodes = {}
+    for i in range(n):
+        cur.next = RandomListNode(randint(0, 10))
+        nodes[i] = cur.next
+        cur = cur.next
+
+    cur = head.next
+    for i in range(n):
+        cur.random = nodes[randint(0, n-1)]
+        cur = cur.next
+
+    return head.next
+
+def print_random_ll(head):
+    while head:
+        headrandomval = head.random.label if head.random else None
+        print("val:{} random:{}".format(head.label, headrandomval))
+        head = head.next
 
 # print(levelOrder(a))
 # print(dist(b, f.val, 0))
